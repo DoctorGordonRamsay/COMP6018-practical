@@ -8,49 +8,24 @@ package main.pkgclass;
  *
  * @author 19214806
  */
-public class Drink {
-    private int drinkType;
-
-    /**
-     * @return the drinkType
-     */
-    public int getDrinkType() {
-        return drinkType;
-    }
-
-    /**
-     * @param drinkType the drinkType to set
-     */
-    public void setDrinkType(int drinkType) {
-        this.drinkType = drinkType;
-    }
+public abstract class Drink {
     
     public void prepareRecipe() {
-        step1();
-        step2();
-        step3();
-        step4();
+        boilWater();
+        addWater();
+        pourIntoCup();
+        addTopping();
     }
 
-    public void step4() {
-        switch(drinkType) {
-            case 1: System.out.println("add sugar and milk"); break;
-            default: System.out.println("add lemon"); break;
-        }
-    }
+    public abstract void addTopping();
 
-    public void step3() {
+    public void pourIntoCup() {
         System.out.println("pour liquid into the cup");
     }
 
-    public void step2() {
-        switch(drinkType){
-            case 1: System.out.println("drip coffee through a filter"); break;
-            default: System.out.println("steep tea in boiling water"); break;
-        }
-    }
+    public abstract void addWater();
 
-    public void step1() {
+    public void boilWater() {
         System.out.println("Boil water");
     }
 }
